@@ -7,7 +7,8 @@ from app.swagger_docs import swaggerui_blueprint
 
 # Create an instance of the flask application
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///advanced_ecommerce.db'
+
 
 #Initialize the app with the flask-sqlalchemy
 db.init_app(app)
